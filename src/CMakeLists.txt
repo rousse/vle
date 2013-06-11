@@ -7,3 +7,4 @@ INCLUDE(${SWIG_USE_FILE})
 INCLUDE(FindPythonLibs)
 
 add_subdirectory(pydynamics)
+#add_subdirectory(rdynamics)

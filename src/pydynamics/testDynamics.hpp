@@ -66,7 +66,6 @@
 
 namespace vle { namespace devs {
 
-    int b(int i);
     class RootCoordinator;
 
     /**
@@ -78,11 +77,26 @@ namespace vle { namespace devs {
     class VLE_API DynamicsInit
     {
     public:
+        /* !!! DynamicsInit(const vpz::AtomicModel& model,
+                     PackageId packageid)
+            : m_model(model), m_packageid(packageid)
+        {} */
         DynamicsInit()
         {}
 
         virtual ~DynamicsInit()
         {}
+
+        /* !!!
+        const vpz::AtomicModel& model() const { return m_model; }
+        */
+        PackageId packageid() const { return m_packageid; }
+
+    private:
+        /* !!!
+        const vpz::AtomicModel&       m_model;
+        */
+        PackageId                       m_packageid;
     };
 
     /**
@@ -98,8 +112,13 @@ namespace vle { namespace devs {
          * @param init The initialiser of Dynamics.
          * @param events The parameter from the experimental frame.
          */
-        Dynamics(const DynamicsInit& init)
-            : m_model("test", NULL, "", "", "")
+        /* !!! Dynamics(const DynamicsInit& init,
+                 const vle::devs::InitEventList&  *** events ***)
+            : m_model(init.model()), m_packageid(init.packageid())
+        {} */
+        Dynamics(const DynamicsInit& init,
+                 const vle::devs::InitEventList&  /* events */)
+               : m_model("test", NULL, "", "", "")
         {}
 
 	/**
@@ -445,6 +464,9 @@ namespace vle { namespace devs {
         inline PackageId packageid() const { return m_packageid; }
 
     private:
+        /* !!! const vpz::AtomicModel& m_model; ****< A constant reference to the
+                                             atomic model node of the graph.
+                                               */
         vpz::AtomicModel m_model; /**< A constant reference to the
                                              atomic model node of the graph.
                                                */
@@ -452,6 +474,7 @@ namespace vle { namespace devs {
         PackageId m_packageid; /**< An iterator to std::set of the
                                  vle::utils::PackageTable. */
     };
-}}
+
+}} // namespace vle devs
 
 #endif
