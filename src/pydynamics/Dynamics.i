@@ -57,7 +57,6 @@ using namespace std;
 %template(VectorValue) std::vector < vle::value::Value* >;
 %template(MapValue) std::map < std::string, vle::value::Value* >;
 
-
 %include <vle/DllDefines.hpp> /* ??? */
 /* #define VLE_API */
 
