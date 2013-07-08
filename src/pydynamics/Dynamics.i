@@ -1,5 +1,5 @@
 /* Module Dynamics */
-%module(directors="1") testDynamics
+%module(directors="1") PyDynamics
 
 %ignore vle::devs::operator<<;
 %{
@@ -29,8 +29,8 @@
 
 #include <vle/utils/PackageTable.hpp>
 #include <vle/version.hpp>
-/* #include <vle/devs/Dynamics.hpp> */
-#include "testDynamics.hpp"
+#include <vle/devs/Dynamics.hpp>
+/* #include "testDynamics.hpp" */
 #include <Python.h>
 %}
 
@@ -61,8 +61,8 @@ using namespace std;
 /* #define VLE_API */
 
 /**** includes ****/ 
-%include "testDynamics.hpp"
-/* %include <vle/devs/Dynamics.hpp> */
+/* %include "testDynamics.hpp" */
+%include <vle/devs/Dynamics.hpp>
 %include <vle/DllDefines.hpp>
 
 %include <vle/value/Value.hpp>
