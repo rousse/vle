@@ -1,0 +1,36 @@
+###############################################################################
+#         pydynamics : programmation de modeles dynamics en python            #
+###############################################################################
+
+###############################################################################
+Paquet pydynamics_wrapper :
+
+Le paquet pydynamics_wrapper contient le code du wrapper.
+
+vle -P pydynamics_wrapper configure build
+
+###############################################################################
+Paquet pydynamics :
+
+Le paquet pydynamics contient la dynamique (code PyDynamics.cpp,hpp) qui sera
+utilisee pour un modele ecrit en python. Le nom du modele python et de son
+paquet sont des parametres.
+
+vle -P pydynamics configure build
+
+vle -P pydynamics my_model_py.vpz
+vle -P pydynamics my_model_cpp.vpz
+vle -P pydynamics my_model_cpp_et_cpp.vpz
+vle -P pydynamics my_model_py_et_cpp.vpz
+
+###############################################################################
+Paquet exemple_modele_python :
+
+Le paquet exemple_modele_python contient un exemple de modele ecrit en python.
+
+vle -P exemple_modele_python configure build
+
+vle -P exemple_modele_python essai.vpz
+
+###############################################################################
+
